@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Fundo xadrez.jpg-8147a5a20971fd0d33f9ed79afcd32ba.stex"
+path="res://.import/inimigo2.png-c1f0eba9b69116b300866ce45fde38f5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Cenário/Fundo xadrez.jpg"
-dest_files=[ "res://.import/Fundo xadrez.jpg-8147a5a20971fd0d33f9ed79afcd32ba.stex" ]
+source_file="res://Sprites/Enemy/inimigo2.png"
+dest_files=[ "res://.import/inimigo2.png-c1f0eba9b69116b300866ce45fde38f5.stex" ]
 
 [params]
 

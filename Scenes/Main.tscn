@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Cenário/Fundo xadrez.jpg" type="Texture" id=3]
 [ext_resource path="res://Scripts/Camera2D.gd" type="Script" id=4]
+[ext_resource path="res://Sprites/LifeBar/Barra_Completa_2.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/LifeBar/Barra_Completa_3.png" type="Texture" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32.5, 32 )
@@ -17,6 +19,7 @@ texture = ExtResource( 3 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 speed = 250
+fire_rate = 0.1
 
 [node name="preda" type="StaticBody2D" parent="."]
 position = Vector2( 500, 300 )
@@ -32,3 +35,16 @@ shape = SubResource( 1 )
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 script = ExtResource( 4 )
+
+[node name="Node2D" type="Node2D" parent="Camera2D"]
+position = Vector2( 466, -318 )
+
+[node name="TextureProgress" type="TextureProgress" parent="Camera2D"]
+margin_left = -440.0
+margin_top = -285.0
+margin_right = -408.0
+margin_bottom = -277.0
+rect_scale = Vector2( 8, 4 )
+value = 90.0
+texture_under = ExtResource( 5 )
+texture_progress = ExtResource( 6 )

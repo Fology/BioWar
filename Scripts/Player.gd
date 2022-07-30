@@ -9,9 +9,8 @@ export var fire_rate = 0.3
 var bullet = preload("res://Scenes/Shot.tscn")
 var can_fire = true
 
-func _process(delta):
-	look_at(get_global_mouse_position())
-
+# Função responsavel por mirar, atirar e instanciar o tiro
+func aim_and_shot():
 	if Input.is_action_pressed("fire") and can_fire:
 		var bullet_instance = bullet.instance()
 		bullet_instance.position = $BulletPoint.get_global_position()
@@ -22,6 +21,11 @@ func _process(delta):
 		yield(get_tree().create_timer(fire_rate),"timeout")
 		can_fire = true
 
+func _process(delta):
+	look_at(get_global_mouse_position())
+	aim_and_shot()
+	
+# Função responsavel por movimentar o personagem
 func get_input():
 	velocity = Vector2()
 	if Input.is_action_pressed("ui_right"):
@@ -33,7 +37,8 @@ func get_input():
 	if Input.is_action_pressed("ui_up"):
 		velocity.y -= 1
 	velocity = velocity.normalized() * speed
+	velocity = move_and_slide(velocity)
 
 func _physics_process(delta):
 	get_input()
-	velocity = move_and_slide(velocity)
+
