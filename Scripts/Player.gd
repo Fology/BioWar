@@ -6,6 +6,8 @@ var velocity = Vector2()
 export var bullet_speed = 1000
 export var fire_rate = 0.3
 
+export var life = 100
+
 var bullet = preload("res://Scenes/Shot.tscn")
 var can_fire = true
 

@@ -4,8 +4,6 @@ var enemy = preload("res://Scenes/Enemy_E1.tscn")
 onready var player_pos = get_node("../Player")
 
 var life = $TextureProgress.value
-func _ready():
-	life = 10
 	
 func _process(delta):
 	position = player_pos.position
