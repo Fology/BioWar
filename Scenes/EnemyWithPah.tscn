@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Enemy_E1.tscn" type="PackedScene" id=1]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( -3.13697, 191.519, 3.13697, -191.519, 337, -38, 297.542, -0.727171, -297.542, 0.727171, 27, -263, 0, 0, 0, 0, -277, -14, -304, -9, 304, 9, -2, 217, 0, 0, 0, 0, 339, -17, 0, 0, 0, 0, 337, -38 )
+}
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends Path2D
+
+
+export (int) var speed = 100
+export var direction: int = 1
+var passo: float = 0.0
+export var onoff:bool = true
+
+func _process(delta: float) -> void:
+	if onoff:
+		passo += delta
+		$PathFollow2D.offset = passo * speed * direction
+"
+
+[node name="Path2D" type="Path2D"]
+position = Vector2( -337, 31 )
+curve = SubResource( 1 )
+script = SubResource( 2 )
+onoff = false
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2( 337, -38 )
+rotation = -1.66119
+
+[node name="Enemy_E1" parent="PathFollow2D" instance=ExtResource( 1 )]

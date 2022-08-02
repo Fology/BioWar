@@ -7,10 +7,8 @@ onready var player_pos = get_node("../Player")
 	
 func _process(delta):
 	position = player_pos.position
-	if len(get_tree().get_nodes_in_group("Enemy")) <= 4*4:
+	if len(get_tree().get_nodes_in_group("Enemy")) <= 0:
 		spawn_enemy()
-	
-	$TextureProgress.value = player_pos.life
 
 func spawn_enemy():
 	var enemy_instance = enemy.instance()
@@ -21,3 +19,6 @@ func spawn_enemy():
 			break
 	enemy
 	get_tree().get_root().add_child(enemy_instance)
+
+func _physics_process(delta):
+	$TextureProgress.value = player_pos.life

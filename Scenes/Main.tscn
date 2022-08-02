@@ -1,15 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Cenário/Fundo xadrez.jpg" type="Texture" id=3]
 [ext_resource path="res://Scripts/Camera2D.gd" type="Script" id=4]
 [ext_resource path="res://Sprites/LifeBar/Barra_Completa_2.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/LifeBar/Barra_Completa_3.png" type="Texture" id=6]
 [ext_resource path="res://Songs/Music/In Game Loop 2.mp3" type="AudioStream" id=7]
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 32.5, 32 )
 
 [node name="Main" type="Node2D"]
 
@@ -21,17 +17,6 @@ texture = ExtResource( 3 )
 [node name="Player" parent="." instance=ExtResource( 1 )]
 speed = 250
 fire_rate = 0.1
-
-[node name="preda" type="StaticBody2D" parent="."]
-position = Vector2( 500, 300 )
-constant_linear_velocity = Vector2( 1, 1 )
-
-[node name="Sprite" type="Sprite" parent="preda"]
-texture = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="preda"]
-position = Vector2( -0.5, 0 )
-shape = SubResource( 1 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
