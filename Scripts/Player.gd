@@ -44,3 +44,6 @@ func get_input():
 func _physics_process(delta):
 	get_input()
 
+func _on_Colisao_player_body_entered(body):
+	if body.is_in_group("shot_enemy"):	
+		life -= 1

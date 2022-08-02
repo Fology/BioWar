@@ -1,14 +1,16 @@
 extends Camera2D
 
 var enemy = preload("res://Scenes/Enemy_E1.tscn")
+
 onready var player_pos = get_node("../Player")
 
-var life = $TextureProgress.value
 	
 func _process(delta):
 	position = player_pos.position
 	if len(get_tree().get_nodes_in_group("Enemy")) <= 4*4:
 		spawn_enemy()
+	
+	$TextureProgress.value = player_pos.life
 
 func spawn_enemy():
 	var enemy_instance = enemy.instance()

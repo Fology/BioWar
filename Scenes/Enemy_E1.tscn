@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Sprites/Enemy/inimigo2.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Enemy_E1.gd" type="Script" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 33.0606
+radius = 32.0156
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 33.1361
 
 [node name="Enemy_E1" type="KinematicBody2D" groups=["Enemy"]]
 script = ExtResource( 2 )
@@ -19,3 +22,11 @@ position = Vector2( 35.108, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Enemy"]]
 shape = SubResource( 1 )
+
+[node name="colisao_enemy" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="colisao_enemy"]
+shape = SubResource( 2 )
+
+[connection signal="input_event" from="." to="." method="_on_Enemy_E1_input_event"]
+[connection signal="body_entered" from="colisao_enemy" to="." method="_on_colisao_enemy_body_entered"]

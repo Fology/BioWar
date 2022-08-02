@@ -8,11 +8,14 @@ onready var player = get_tree().get_nodes_in_group("player")[0]
 export (int) var speed = 150
 export var bullet_speed = 600
 export var fire_rate = 0.3
+export var life_enemy = 40
 
 var can_fire = true
 	
 func _process(delta):
 	look_at(player.position)
+	if life_enemy == 0:
+		queue_free()
 	
 	if can_fire:	
 		var bullet_instance = bullet.instance()
@@ -23,3 +26,7 @@ func _process(delta):
 		can_fire = false
 		yield(get_tree().create_timer(fire_rate),"timeout")
 		can_fire = true
+
+func _on_colisao_enemy_body_entered(body):
+	if body.is_in_group('shot_player'):
+		life_enemy -= 1

@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 6 )
 
-[node name="Shot" type="RigidBody2D"]
+[node name="Shot" type="RigidBody2D" groups=["shot_enemy"]]
 gravity_scale = 0.0
 contacts_reported = 1
 contact_monitor = true
