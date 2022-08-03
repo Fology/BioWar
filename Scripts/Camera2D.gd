@@ -4,11 +4,18 @@ var enemy = preload("res://Scenes/Enemy_E1.tscn")
 
 onready var player_pos = get_node("../Player")
 
+var difficulty = 1
+var kills = 0
+
 	
 func _process(delta):
 	position = player_pos.position
-	if len(get_tree().get_nodes_in_group("Enemy")) <= 0:
+	if len(get_tree().get_nodes_in_group("Enemy")) <= difficulty - 1 :
 		spawn_enemy()
+		kills +=1
+		if difficulty == kills:
+			kills = 0
+			difficulty += 1
 
 func spawn_enemy():
 	var enemy_instance = enemy.instance()

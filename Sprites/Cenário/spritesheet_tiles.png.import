@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Fundo xadrez.jpg-8147a5a20971fd0d33f9ed79afcd32ba.stex"
+path="res://.import/spritesheet_tiles.png-81e15f20bad02efd64f2217a15fa8419.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Cenário/Fundo xadrez.jpg"
-dest_files=[ "res://.import/Fundo xadrez.jpg-8147a5a20971fd0d33f9ed79afcd32ba.stex" ]
+source_file="res://Sprites/Cenário/spritesheet_tiles.png"
+dest_files=[ "res://.import/spritesheet_tiles.png-81e15f20bad02efd64f2217a15fa8419.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

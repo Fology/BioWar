@@ -9,13 +9,14 @@ export var bullet_speed = 600
 export var fire_rate = 0.2
 export var life_enemy = 20
 export var speed = 100
+var passo:float = 0.0
 var can_fire = true
+var step: float = 0.0
 
-func _process(delta):
+func _process(delta: float) -> void:
 	look_at(player.position)
 	if life_enemy == 0:
 		queue_free()
-	$ProgressBar.value = life_enemy
 	
 	if can_fire:	
 		var bullet_instance = bullet.instance()
