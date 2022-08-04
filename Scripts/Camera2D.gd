@@ -6,6 +6,8 @@ onready var player_pos = get_node("../Player")
 
 var difficulty = 1
 var kills = 0
+const time_period = 10
+var time = 0
 
 	
 func _process(delta):
@@ -16,6 +18,8 @@ func _process(delta):
 		if difficulty == kills:
 			kills = 0
 			difficulty += 1
+	
+	
 
 func spawn_enemy():
 	var enemy_instance = enemy.instance()
@@ -29,3 +33,10 @@ func spawn_enemy():
 
 func _physics_process(delta):
 	$TextureProgress.value = player_pos.life
+	
+	time += delta
+	$BarraMana.value = time
+	if time > time_period and player_pos.in_use:
+		emit_signal('timeout')
+		time = 0
+	

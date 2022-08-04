@@ -14,7 +14,7 @@ polygon = PoolVector2Array( -2, -33, 11, -31, 21, -25, 29, -15, 33, 0, 31, 11, 2
 
 [node name="Enemy_E1" type="KinematicBody2D" groups=["Enemy"]]
 script = ExtResource( 2 )
-fire_rate = 0.6
+fire_rate = 0.7
 
 [node name="Sprite" type="Sprite" parent="."]
 rotation = 1.5708

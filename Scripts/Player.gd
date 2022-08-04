@@ -4,7 +4,10 @@ export (int) var speed = 200
 var velocity = Vector2()
 
 export var bullet_speed = 1000
-export var fire_rate = 0.3
+export var fire_rate = 0.2
+const wait_special = 5
+var can_special = true
+var in_use = false
 
 export var life = 100
 
@@ -26,6 +29,17 @@ func aim_and_shot():
 func _process(delta):
 	look_at(get_global_mouse_position())
 	aim_and_shot()
+	
+	if Input.is_action_just_pressed("reload") and can_special:
+		in_use = true
+		fire_rate = 0.05
+		can_special = false
+		yield(get_tree().create_timer(wait_special),"timeout")
+		
+		fire_rate = 0.2
+		in_use = false
+		yield(get_tree().create_timer(wait_special),"timeout")
+		can_special = true
 	
 # Função responsavel por movimentar o personagem
 func get_input():

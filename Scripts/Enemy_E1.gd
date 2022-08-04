@@ -9,6 +9,8 @@ export var bullet_speed = 600
 export var fire_rate = 0.2
 export var life_enemy = 20
 export var speed = 100
+export var aceleration = 1
+
 var passo:float = 0.0
 var can_fire = true
 var step: float = 0.0
