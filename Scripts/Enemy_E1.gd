@@ -7,7 +7,7 @@ onready var player = get_tree().get_nodes_in_group("player")[0]
 
 export var bullet_speed = 600
 export var fire_rate = 0.2
-export var life_enemy = 20
+export var life_enemy = 12
 export var speed = 100
 export var aceleration = 1
 

@@ -26,7 +26,7 @@ func aim_and_shot():
 		yield(get_tree().create_timer(fire_rate),"timeout")
 		can_fire = true
 
-func _process(delta):
+func _process(delta) -> void:
 	look_at(get_global_mouse_position())
 	aim_and_shot()
 	
