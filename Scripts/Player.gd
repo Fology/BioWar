@@ -7,6 +7,7 @@ export var bullet_speed = 1000
 export var fire_rate = 0.2
 const wait_special = 5
 var can_special = true
+var can_dash = true
 var in_use = false
 
 export var life = 100
@@ -41,6 +42,19 @@ func _process(delta) -> void:
 		yield(get_tree().create_timer(wait_special),"timeout")
 		can_special = true
 	
+	if Input.is_action_just_pressed("dash") and can_dash:
+		speed = 1500
+		can_dash = false
+		$Colisao_player.monitoring = false
+		$Colisao_player/CollisionShape2D.disabled = true
+		yield(get_tree().create_timer(0.2),"timeout")
+		speed = 200
+		yield(get_tree().create_timer(1),"timeout")
+		can_dash = true
+		$Colisao_player.monitoring = true
+		$Colisao_player/CollisionShape2D.disabled = false
+		
+		
 # Função responsavel por movimentar o personagem
 func get_input():
 	velocity = Vector2()

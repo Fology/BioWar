@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Menu Inlet.mp3-f5b58134241d284b82b99e7f495ff0a5.mp3str"
+
+[deps]
+
+source_file="res://Songs/Music/Menu Inlet.mp3"
+dest_files=[ "res://.import/Menu Inlet.mp3-f5b58134241d284b82b99e7f495ff0a5.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

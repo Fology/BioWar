@@ -10,6 +10,7 @@ export var fire_rate = 0.2
 export var life_enemy = 12
 export var speed = 100
 export var aceleration = 1
+enum {Easy, Medio, Hard}
 
 var passo:float = 0.0
 var can_fire = true
