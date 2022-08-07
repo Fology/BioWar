@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+signal died
+
 var velocity = Vector2()
 
 var bullet = preload("res://Scenes/Shot_Enemy.tscn")
@@ -10,7 +12,6 @@ export var fire_rate = 0.2
 export var life_enemy = 12
 export var speed = 100
 export var aceleration = 1
-enum {Easy, Medio, Hard}
 
 var passo:float = 0.0
 var can_fire = true
@@ -19,6 +20,7 @@ var step: float = 0.0
 func _process(delta: float) -> void:
 	look_at(player.position)
 	if life_enemy == 0:
+		global.points += 1
 		queue_free()
 	
 	if can_fire:	

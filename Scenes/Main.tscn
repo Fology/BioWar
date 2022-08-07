@@ -245,6 +245,12 @@ texture_under = ExtResource( 5 )
 texture_progress = ExtResource( 3 )
 fill_mode = 6
 
+[node name="Label" type="Label" parent="Camera2D"]
+margin_left = -440.0
+margin_top = -200.0
+margin_right = -400.0
+margin_bottom = -186.0
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
 autoplay = true

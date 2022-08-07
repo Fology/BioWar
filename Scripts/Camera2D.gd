@@ -9,7 +9,6 @@ var kills = 0
 const time_period = 10
 var time = 0
 
-	
 func _process(delta):
 	position = player_pos.position
 	if len(get_tree().get_nodes_in_group("Enemy")) <= difficulty - 1 :
@@ -18,8 +17,7 @@ func _process(delta):
 		if difficulty == kills:
 			kills = 0
 			difficulty += 1
-	
-	
+	$Label.set_text(String(global.points))
 
 func spawn_enemy():
 	var enemy_instance = enemy.instance()
