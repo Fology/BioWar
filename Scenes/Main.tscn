@@ -55,6 +55,5 @@ margin_bottom = -186.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
-autoplay = true
 
 [node name="Node2D" parent="." instance=ExtResource( 2 )]

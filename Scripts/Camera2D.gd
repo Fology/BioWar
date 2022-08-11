@@ -26,8 +26,8 @@ func spawn_enemy():
 		if enemy_pos[0] > 460 or enemy_pos[0] < -460  and enemy_pos[1] > 350 or enemy_pos[1] < -350:
 			enemy_instance.position = Vector2(enemy_pos[0], enemy_pos[1])
 			break
-	enemy
 	get_tree().get_root().add_child(enemy_instance)
+	print((enemy_instance.position))
 
 func _physics_process(delta):
 	$TextureProgress.value = player_pos.life
