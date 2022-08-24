@@ -1,0 +1,137 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://Texture/Player Mobs/Individual Sprites/adventurer-run-03.png" type="Texture" id=1]
+[ext_resource path="res://Texture/Player Mobs/Individual Sprites/adventurer-attack1-01.png" type="Texture" id=2]
+[ext_resource path="res://Texture/Player Mobs/Individual Sprites/adventurer-idle-2-00.png" type="Texture" id=3]
+[ext_resource path="res://Texture/Player Mobs/Individual Sprites/adventurer-idle-2-03.png" type="Texture" id=4]
+[ext_resource path="res://Texture/Player Mobs/Individual Sprites/adventurer-attack1-00.png" type="Texture" id=5]
+[ext_resource path="res://Texture/Player Mobs/Individual Sprites/adventurer-idle-2-01.png" type="Texture" id=6]
+[ext_resource path="res://Texture/Player Mobs/Individual Sprites/adventurer-attack1-02.png" type="Texture" id=7]
+[ext_resource path="res://Texture/Player Mobs/Individual Sprites/adventurer-attack1-03.png" type="Texture" id=8]
+[ext_resource path="res://Texture/Player Mobs/Individual Sprites/adventurer-attack1-04.png" type="Texture" id=9]
+[ext_resource path="res://Texture/Player Mobs/Individual Sprites/adventurer-run-01.png" type="Texture" id=10]
+[ext_resource path="res://Texture/Player Mobs/Individual Sprites/adventurer-run-02.png" type="Texture" id=11]
+[ext_resource path="res://Texture/Player Mobs/Individual Sprites/adventurer-idle-2-02.png" type="Texture" id=12]
+[ext_resource path="res://Texture/Player Mobs/Individual Sprites/adventurer-run-04.png" type="Texture" id=13]
+[ext_resource path="res://Texture/Player Mobs/Individual Sprites/adventurer-run-05.png" type="Texture" id=14]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 7.0
+height = 14.0
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 2 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "Attack",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 6 ), ExtResource( 12 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 1 ), ExtResource( 13 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "Run",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 19.0
+
+[sub_resource type="Animation" id=4]
+resource_name = "Attack"
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Attack" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Attack_Area/HitBox_Sword:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 1.5
+loop = true
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ "Idle" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 0.75, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[node name="Mob_Player" type="Node2D"]
+
+[node name="Player_Area" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+
+[node name="Player_Collision" type="CollisionShape2D" parent="Player_Area"]
+position = Vector2( 0, 4 )
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Player_Area"]
+frames = SubResource( 2 )
+animation = "Idle"
+frame = 2
+
+[node name="Attack_Area" type="Area2D" parent="Player_Area"]
+
+[node name="HitBox_Sword" type="CollisionShape2D" parent="Player_Area/Attack_Area"]
+position = Vector2( 7, -2 )
+shape = SubResource( 3 )
+disabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player_Area"]
+anims/Attack = SubResource( 4 )
+anims/RESET = SubResource( 5 )

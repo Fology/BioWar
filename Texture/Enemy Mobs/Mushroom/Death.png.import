@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Untitled-1.png-5aee3718a6bc66cd95f0e3ab7cdd5221.stex"
+path="res://.import/Death.png-038b898212041201fb17b34170557746.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Texture/Enemy Mobs/Untitled-1.png"
-dest_files=[ "res://.import/Untitled-1.png-5aee3718a6bc66cd95f0e3ab7cdd5221.stex" ]
+source_file="res://Texture/Enemy Mobs/Mushroom/Death.png"
+dest_files=[ "res://.import/Death.png-038b898212041201fb17b34170557746.stex" ]
 
 [params]
 
