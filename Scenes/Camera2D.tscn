@@ -1,5 +1,6 @@
 [gd_scene load_steps=16 format=2]
 
+[ext_resource path="res://Scripts/Camera2D.gd" type="Script" id=1]
 [ext_resource path="res://Texture/Font Style/LoveGlitchPersonalUseRegular-vmEyA.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Texture/Icons/shoter.png" type="Texture" id=3]
 [ext_resource path="res://Texture/Icons/nextd.png" type="Texture" id=4]
@@ -8,44 +9,6 @@
 [ext_resource path="res://Texture/Icons/shield.png" type="Texture" id=7]
 [ext_resource path="res://Texture/Icons/sword.png" type="Texture" id=8]
 [ext_resource path="res://Texture/Icons/special.png" type="Texture" id=9]
-
-[sub_resource type="GDScript" id=7]
-script/source = "extends Camera2D
-
-var velocity_c = 300
-var can_moviment_rigth = false
-var can_moviment_left = false
-
-
-func _process(delta):
-	if can_moviment_rigth and position.x <= 1536:
-		position.x += velocity_c * delta
-	if can_moviment_left and position.x >= 0:
-		position.x -= velocity_c * delta
-		
-func _on_Buttond_mouse_entered():
-	can_moviment_rigth = true
-
-func _on_Buttond_mouse_exited():
-	can_moviment_rigth = false
-
-func _on_Buttone_mouse_entered():
-	can_moviment_left = true
-
-func _on_Buttone_mouse_exited():
-	can_moviment_left = false
-
-func _on_Button_options_pressed():
-		$ColorRect.visible = true
-		get_tree().paused = true
-
-func _on_Button_Resume_pressed():
-	get_tree().paused = false
-	$ColorRect.visible = false
-
-func _on_Button_Quit_pressed():
-	get_tree().quit()
-"
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -68,7 +31,7 @@ font_data = ExtResource( 2 )
 [node name="Camera2D" type="Camera2D"]
 anchor_mode = 0
 current = true
-script = SubResource( 7 )
+script = ExtResource( 1 )
 
 [node name="Buttone" type="Button" parent="."]
 margin_top = 160.0

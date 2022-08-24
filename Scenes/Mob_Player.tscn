@@ -123,7 +123,6 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Player_Area"]
 frames = SubResource( 2 )
 animation = "Idle"
-frame = 2
 
 [node name="Attack_Area" type="Area2D" parent="Player_Area"]
 
